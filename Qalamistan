@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Qalamistan - Where Every Word Finds Voice</title>
+
+<meta name="description"
+content="Qalamistan — a free space where writers share their words, stories, poems and thoughts. Where every Word Finds Voice.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --bg: #f8f6f1;
+    --surface: #ffffff;
+    --surface-2: #f1eee7;
+    --text: #191919;
+    --muted: #77736c;
+    --accent: #7b3f2f;
+    --accent-dark: #5d2d22;
+    --border: #e6e0d7;
+    --shadow: 0 15px 40px rgba(30, 25, 20, 0.07);
+}
+
+.dark {
+    --bg: #11100f;
+    --surface: #1b1917;
+    --surface-2: #24211e;
+    --text: #f5f1eb;
+    --muted: #aaa39a;
+    --accent: #c47d65;
+    --accent-dark: #e09a80;
+    --border: #332f2a;
+    --shadow: 0 15px 40px rgba(0,0,0,.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    transition: .3s;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* NAVBAR */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(15px);
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+    max-width: 1180px;
+    margin: auto;
+    padding: 18px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    text-decoration: none;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-mark {
+    width: 42px;
+    height: 42px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+}
+
+.logo-text {
+    font-family: "Playfair Display", serif;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.logo-tag {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.theme-btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 50%;
+}
+
+.publish-btn {
+    border: none;
+    background: var(--accent);
+    color: white;
+    padding: 11px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+.publish-btn:hover {
+    background: var(--accent-dark);
+}
+
+/* HERO */
+
+.hero {
+    max-width: 1180px;
+    margin: auto;
+    padding: 100px 25px 80px;
+    text-align: center;
+}
+
+.hero-label {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(50px, 8vw, 92px);
+    line-height: .95;
+    max-width: 900px;
+    margin: auto;
+}
+
+.hero h1 span {
+    color: var(--accent);
+    font-style: italic;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 28px auto;
+    color: var(--muted);
+    font-size: 18px;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.primary {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+.secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 14px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+/* DIVIDER */
+
+.quote {
+    max-width: 900px;
+    margin: 0 auto 70px;
+    padding: 35px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.quote p {
+    font-family: "Playfair Display", serif;
+    font-size: 27px;
+    font-style: italic;
+}
+
+.quote small {
+    color: var(--muted);
+}
+
+/* LIBRARY */
+
+.library {
+    max-width: 1180px;
+    margin: auto;
+    padding: 0 25px 100px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 30px;
+}
+
+.section-heading h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 40px;
+}
+
+.section-heading p {
+    color: var(--muted);
+}
+
+.search-box {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 15px 18px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    outline: none;
+}
+
+.category-row {
+    display: flex;
+    gap: 9px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+
+.category {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    padding: 8px 15px;
+    border-radius: 30px;
+}
+
+.category.active,
+.category:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+/* CARDS */
+
+.writing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 26px;
+    transition: .25s;
+    box-shadow: var(--shadow);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-category {
+    color: var(--accent);
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.card h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 26px;
+    margin: 12px 0;
+}
+
+.card-excerpt {
+    color: var(--muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 22px;
+    padding-top: 17px;
+    border-top: 1px solid var(--border);
+}
+
+.author {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.read-btn {
+    border: none;
+    background: transparent;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.like-btn {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    margin-left: 10px;
+}
+
+/* MODAL */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    display: none;
+    place-items: center;
+    z-index: 200;
+    padding: 20px;
+}
+
+.modal.show {
+    display: grid;
+}
+
+.modal-box {
+    width: min(700px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: var(--surface);
+    border-radius: 22px;
+    padding: 32px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.modal-header h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+}
+
+.close {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-size: 25px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    color: var(--text);
+    outline: none;
+}
+
+.form-group textarea {
+    min-height: 220px;
+    resize: vertical;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+/* READER */
+
+.reader {
+    display: none;
+}
+
+.reader.show {
+    display: block;
+}
+
+.reader-content {
+    max-width: 800px;
+    margin: auto;
+    padding: 70px 25px 100px;
+}
+
+.back-btn {
+    border: none;
+    background: transparent;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.reader-category {
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.reader h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(40px, 7vw, 65px);
+    line-height: 1.05;
+    margin: 15px 0;
+}
+
+.reader-author {
+    color: var(--muted);
+    margin-bottom: 45px;
+}
+
+.reader-text {
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+    line-height: 1.9;
+    white-space: pre-wrap;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 45px 25px;
+}
+
+.footer-inner {
+    max-width: 1180px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-inner p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 850px) {
+    .writing-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width: 600px) {
+
+    .logo-tag {
+        display: none;
+    }
+
+    .publish-btn {
+        padding: 10px 15px;
+    }
+
+    .hero {
+        padding-top: 70px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .writing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+    .section-heading h2 {
+        margin-bottom: 5px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+    <div class="nav-inner">
+
+        <a href="#" class="logo" onclick="showHome()">
+
+            <div class="logo-mark">ق</div>
+
+            <div>
+                <div class="logo-text">Qalamistan</div>
+                <div class="logo-tag">Every Word Finds Voice</div>
+            </div>
+
+        </a>
+
+        <div class="nav-actions">
+
+            <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">
+                ☾
+            </button>
+
+            <button class="publish-btn" onclick="openModal()">
+                + Publish
+            </button>
+
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- HOME -->
+
+<main id="home">
+
+<section class="hero">
+
+    <div class="hero-label">
+        A home for words
+    </div>
+
+    <h1>
+        Every Word <span>Finds Voice.</span>
+    </h1>
+
+    <p>
+        Qalamistan is an open literary space where anyone can
+        share their poems, stories, essays, reflections and ideas —
+        freely.
+    </p>
+
+    <div class="hero-actions">
+
+        <button class="primary" onclick="openModal()">
+            Share Your Writing
+        </button>
+
+        <button class="secondary"
+                onclick="document.getElementById('library').scrollIntoView()">
+            Explore Writings
+        </button>
+
+    </div>
+
+</section>
+
+
+<div class="quote">
+
+    <p>
+        “Words are, of course, the most powerful drug used by mankind.”
+    </p>
+
+    <small>— Rudyard Kipling</small>
+
+</div>
+
+
+<section class="library" id="library">
+
+    <div class="section-heading">
+
+        <div>
+            <h2>The Library</h2>
+            <p>Discover words written by people like you.</p>
+        </div>
+
+    </div>
+
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Search writings, authors or ideas..."
+            oninput="renderWritings()"
+        >
+
+    </div>
+
+
+    <div class="category-row">
+
+        <button class="category active"
+                onclick="filterCategory('All', this)">
+            All
+        </button>
+
+        <button class="category"
+                onclick="filterCategory('Poetry', this)">
+            Poetry
+        </button>
+
+        <button class="category"
+                onclick="filterCategory('Stories', this)">
+            Stories
+        </button>
+
+        <button class="category"
+                onclick="filterCategory('Essays', this)">
+            Essays
+        </button>
+
+        <button class="category"
+                onclick="filterCategory('Reflections', this)">
+            Reflections
+        </button>
+
+        <button class="category"
+                onclick="filterCategory('Other', this)">
+            Other
+        </button>
+
+    </div>
+
+
+    <div class="writing-grid" id="writingGrid"></div>
+
+</section>
+
+</main>
+
+
+<!-- READER -->
+
+<section class="reader" id="reader">
+
+    <div class="reader-content">
+
+        <button class="back-btn" onclick="showHome()">
+            ← Back to Library
+        </button>
+
+        <div class="reader-category" id="readerCategory"></div>
+
+        <h1 id="readerTitle"></h1>
+
+        <div class="reader-author" id="readerAuthor"></div>
+
+        <div class="reader-text" id="readerText"></div>
+
+    </div>
+
+</section>
+
+
+<!-- PUBLISH MODAL -->
+
+<div class="modal" id="publishModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h2>Give Your Words a Voice</h2>
+
+            <button class="close" onclick="closeModal()">
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="writingForm">
+
+            <div class="form-group">
+
+                <label for="title">
+                    Title
+                </label>
+
+                <input
+                    id="title"
+                    required
+                    placeholder="Give your piece a title..."
+                >
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="author">
+                        Your Name
+                    </label>
+
+                    <input
+                        id="author"
+                        required
+                        placeholder="Author name"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="category">
+                        Category
+                    </label>
+
+                    <select id="category">
+
+                        <option>Poetry</option>
+                        <option>Stories</option>
+                        <option>Essays</option>
+                        <option>Reflections</option>
+                        <option>Other</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="content">
+                    Your Writing
+                </label>
+
+                <textarea
+                    id="content"
+                    required
+                    placeholder="Let the words flow..."
+                ></textarea>
+
+            </div>
+
+
+            <button class="submit" type="submit">
+                Publish to Qalamistan
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-inner">
+
+        <div>
+            <strong>Qalamistan</strong>
+            <p>Every Word Finds Voice.</p>
+        </div>
+
+        <p>
+            A free space for writers, readers and dreamers.
+        </p>
+
+        <p>
+            © 2026 Qalamistan
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* DEFAULT WRITINGS */
+
+const defaultWritings = [
+
+    {
+        id: 1,
+        title: "The Silence Between Words",
+        author: "Qalamistan",
+        category: "Poetry",
+        content:
+`Sometimes silence speaks louder
+than everything we choose to say.
+
+There are stories hidden
+between every breath,
+every pause,
+every unfinished sentence.`
+    },
+
+    {
+        id: 2,
+        title: "A Letter to Tomorrow",
+        author: "A Reader",
+        category: "Reflections",
+        content:
+`Dear tomorrow,
+
+I don't know what you hold for me.
+But I hope I arrive there
+with the courage to begin again.
+
+Some dreams take time.
+That doesn't make them less real.`
+    },
+
+    {
+        id: 3,
+        title: "Why We Write",
+        author: "Anonymous",
+        category: "Essays",
+        content:
+`We write because some thoughts
+refuse to remain inside us.
+
+We write to remember.
+We write to question.
+We write to understand.
+
+And sometimes,
+we write simply because
+the world needs another voice.`
+    }
+
+];
+
+
+/* STORAGE */
+
+let writings =
+    JSON.parse(localStorage.getItem("qalamistan_writings"))
+    || defaultWritings;
+
+let currentCategory = "All";
+
+
+/* RENDER */
+
+function renderWritings() {
+
+    const grid =
+        document.getElementById("writingGrid");
+
+    const search =
+        document.getElementById("search")
+        .value
+        .toLowerCase();
+
+    let filtered = writings.filter(writing => {
+
+        const matchesCategory =
+            currentCategory === "All"
+            || writing.category === currentCategory;
+
+        const matchesSearch =
+            writing.title.toLowerCase().includes(search)
+            || writing.author.toLowerCase().includes(search)
+            || writing.content.toLowerCase().includes(search);
+
+        return matchesCategory && matchesSearch;
+
+    });
+
+
+    if (filtered.length === 0) {
+
+        grid.innerHTML = `
+            <div style="grid-column:1/-1;text-align:center;padding:60px">
+                <h3>No writings found.</h3>
+                <p style="color:var(--muted)">
+                    Be the first to give these words a voice.
+                </p>
+            </div>
+        `;
+
+        return;
+    }
+
+
+    grid.innerHTML = filtered.map(writing => {
+
+        const excerpt =
+            writing.content.substring(0, 220);
+
+        return `
+
+        <article class="card">
+
+            <div class="card-category">
+                ${escapeHTML(writing.category)}
+            </div>
+
+            <h3>
+                ${escapeHTML(writing.title)}
+            </h3>
+
+            <p class="card-excerpt">
+                ${escapeHTML(excerpt)}
+                ${writing.content.length > 220 ? "..." : ""}
+            </p>
+
+            <div class="card-footer">
+
+                <span class="author">
+                    by ${escapeHTML(writing.author)}
+                </span>
+
+                <div>
+
+                    <button
+                        class="read-btn"
+                        onclick="readWriting(${writing.id})">
+                        Read →
+                    </button>
+
+                    <button
+                        class="like-btn"
+                        onclick="likeWriting(this)">
+                        ♡
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        `;
+
+    }).join("");
+
+}
+
+
+/* CATEGORY */
+
+function filterCategory(category, button) {
+
+    currentCategory = category;
+
+    document
+        .querySelectorAll(".category")
+        .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    renderWritings();
+
+}
+
+
+/* OPEN MODAL */
+
+function openModal() {
+
+    document
+        .getElementById("publishModal")
+        .classList.add("show");
+
+}
+
+
+/* CLOSE MODAL */
+
+function closeModal() {
+
+    document
+        .getElementById("publishModal")
+        .classList.remove("show");
+
+}
+
+
+/* PUBLISH */
+
+document
+.getElementById("writingForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const writing = {
+
+        id: Date.now(),
+
+        title:
+            document.getElementById("title").value.trim(),
+
+        author:
+            document.getElementById("author").value.trim(),
+
+        category:
+            document.getElementById("category").value,
+
+        content:
+            document.getElementById("content").value.trim()
+
+    };
+
+
+    writings.unshift(writing);
+
+    localStorage.setItem(
+        "qalamistan_writings",
+        JSON.stringify(writings)
+    );
+
+
+    this.reset();
+
+    closeModal();
+
+    currentCategory = "All";
+
+    document
+        .querySelectorAll(".category")
+        .forEach(btn => btn.classList.remove("active"));
+
+    document
+        .querySelector(".category")
+        .classList.add("active");
+
+    renderWritings();
+
+    document
+        .getElementById("library")
+        .scrollIntoView({behavior:"smooth"});
+
+});
+
+
+/* READER */
+
+function readWriting(id) {
+
+    const writing =
+        writings.find(item => item.id === id);
+
+    if (!writing) return;
+
+    document
+        .getElementById("home")
+        .style.display = "none";
+
+    document
+        .getElementById("reader")
+        .classList.add("show");
+
+
+    document
+        .getElementById("readerCategory")
+        .textContent = writing.category;
+
+    document
+        .getElementById("readerTitle")
+        .textContent = writing.title;
+
+    document
+        .getElementById("readerAuthor")
+        .textContent =
+        "Written by " + writing.author;
+
+    document
+        .getElementById("readerText")
+        .textContent = writing.content;
+
+    window.scrollTo(0,0);
+
+}
+
+
+/* HOME */
+
+function showHome() {
+
+    document
+        .getElementById("reader")
+        .classList.remove("show");
+
+    document
+        .getElementById("home")
+        .style.display = "block";
+
+    window.scrollTo(0,0);
+
+}
+
+
+/* DARK MODE */
+
+function toggleTheme() {
+
+    document
+        .body
+        .classList
+        .toggle("dark");
+
+    const dark =
+        document.body.classList.contains("dark");
+
+    localStorage.setItem(
+        "qalamistan_theme",
+        dark ? "dark" : "light"
+    );
+
+    document
+        .getElementById("themeBtn")
+        .textContent = dark ? "☀" : "☾";
+
+}
+
+
+/* LIKE */
+
+function likeWriting(button) {
+
+    if (button.textContent === "♡") {
+
+        button.textContent = "♥";
+
+    } else {
+
+        button.textContent = "♡";
+
+    }
+
+}
+
+
+/* SECURITY */
+
+function escapeHTML(text) {
+
+    const div = document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+
+}
+
+
+/* INITIALISE */
+
+if (
+    localStorage.getItem("qalamistan_theme")
+    === "dark"
+) {
+
+    document.body.classList.add("dark");
+
+    document.getElementById("themeBtn")
+        .textContent = "☀";
+
+}
+
+renderWritings();
+
+</script>
+
+</body>
+</html>
